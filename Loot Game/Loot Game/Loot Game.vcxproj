@@ -126,6 +126,7 @@
     <ClInclude Include="GameState.h" />
     <ClInclude Include="Hitbox.h" />
     <ClInclude Include="Input.h" />
+    <ClInclude Include="ObjectFactory.h" />
     <ClInclude Include="OtherTestScene.h" />
     <ClInclude Include="RenderInfo.h" />
     <ClInclude Include="Scene.h" />
