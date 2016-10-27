@@ -1,11 +1,11 @@
 #include "StateManager.h"
 #include "GameState.h"
 
-void StateManager::cleanStates()
+void StateManager::cleanStates(const GameInfo& _info)
 {
 	for (auto& state : m_states)
 	{
-		state->cleanup();
+		state->cleanup(_info);
 		delete state;
 	}
 	m_states.clear();
@@ -18,6 +18,17 @@ void StateManager::cleanStates()
 
 void StateManager::mergeStates(const GameInfo& _info)
 {
+	if (m_popState)
+	{
+		m_states.back()->cleanup(_info);
+		m_states.pop_back();
+		if (m_states.size() > 0)
+		{
+			m_states.back()->resume();
+		}
+		m_popState = false;
+	}
+
 	for (auto& state : m_upcomingStates)
 	{
 		state->initialise(_info);
@@ -31,31 +42,39 @@ void StateManager::mergeStates(const GameInfo& _info)
 
 	if (m_newState)
 	{
-		cleanStates();
+		cleanStates(_info);
 		m_states.push_back(m_newState);
 		m_newState->initialise(_info);
 		m_newState = nullptr;
 	}
 }
 
-StateManager::StateManager(GameState* _initialState = nullptr)
+StateManager::StateManager()
 {
-	swapState(_initialState);
+	m_newState = nullptr;
 }
 
 StateManager::~StateManager()
 {
-	cleanStates();
 	if (m_newState)
 	{
 		delete m_newState;
 	}
 }
 
+void StateManager::initialise(const GameInfo& _info, GameState* _initialState = nullptr)
+{
+	swapState(_initialState);
+	mergeStates(_info);
+}
+
 void StateManager::update(const GameInfo& _info)
 {
 	mergeStates(_info);
-	m_states.back()->update(_info);
+	if (m_states.size() > 0)
+	{
+		m_states.back()->update(_info);
+	}
 }
 
 void StateManager::draw(const RenderInfo& _info)
@@ -84,12 +103,7 @@ void StateManager::popState()
 {
 	if (m_states.size() > 0)
 	{
-		m_states.back()->cleanup();
-		m_states.pop_back();
-		if (m_states.size() > 0)
-		{
-			m_states.back()->resume();
-		}
+		m_popState = true;
 	}
 }
 

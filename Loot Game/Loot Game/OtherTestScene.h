@@ -11,5 +11,5 @@ public:
 	void initialise(const GameInfo& _info);
 	void update(const GameInfo& _info);
 	void draw(const RenderInfo& _info);
-	void cleanup();
+	void cleanup(const GameInfo& _info);
 };

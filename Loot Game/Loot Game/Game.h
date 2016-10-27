@@ -19,7 +19,7 @@ private:
 	static const float m_maxDt;
 	float m_dt;
 	sf::Color m_clearColour;
-	GameInfo m_updateInfo;
+	GameInfo m_gameInfo;
 	RenderInfo m_renderInfo;
 	StateManager* m_stateManager;
 	Input* m_input;

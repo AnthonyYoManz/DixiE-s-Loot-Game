@@ -22,10 +22,11 @@ protected:
 	void processUncleanRemovalList();
 	void removeObjectFromList(unsigned int handle);
 public:
+	virtual ~Scene() {}
 	virtual void initialise(const GameInfo& _info) = 0;
 	virtual void update(const GameInfo& _info) = 0;
 	virtual void draw(const RenderInfo& _info) = 0;
-	virtual void cleanup() = 0;
+	virtual void cleanup(const GameInfo& _info) = 0;
 
 	void addObject(SceneObject* _object, sf::Vector2f position = sf::Vector2f(0, 0));
 	void removeObject(unsigned int handle);

@@ -1,5 +1,6 @@
 #include "OtherTestScene.h"
 #include <SFML/Graphics.hpp>
+#include <iostream>
 #include "TestScene.h"
 #include "StateManager.h"
 #include "Input.h"
@@ -28,6 +29,6 @@ void OtherTestScene::draw(const RenderInfo & _info)
 	_info.m_target->draw(rect);
 }
 
-void OtherTestScene::cleanup()
+void OtherTestScene::cleanup(const GameInfo& _info)
 {
 }

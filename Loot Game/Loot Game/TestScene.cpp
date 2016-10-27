@@ -28,6 +28,6 @@ void TestScene::draw(const RenderInfo & _info)
 	_info.m_target->draw(rect);
 }
 
-void TestScene::cleanup()
+void TestScene::cleanup(const GameInfo& _info)
 {
 }

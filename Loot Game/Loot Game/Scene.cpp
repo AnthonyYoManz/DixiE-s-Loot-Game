@@ -70,7 +70,7 @@ void Scene::removeObjectFromList(unsigned int _handle)
 		{
             if(m_objectList.at(i)->getHandle() == _handle)
 			{
-                m_objectList.at(i)->cleanup();
+                //m_objectList.at(i)->cleanup();
                 delete m_objectList.at(i);
                 m_objectList.erase(m_objectList.begin()+i);
                 break;

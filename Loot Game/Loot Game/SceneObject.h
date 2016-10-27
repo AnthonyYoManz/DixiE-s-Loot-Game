@@ -35,7 +35,7 @@ public:
 	virtual void update(const GameInfo& _info) = 0;
 	virtual void handleCollision(SceneObject* _other, Collision _collision) {}
 	virtual void draw(const RenderInfo& _info) = 0;
-	virtual void cleanup() = 0;
+	virtual void cleanup(const GameInfo& _info) = 0;
 	virtual bool onScreen() = 0;
 
 	sf::Vector2f getPosition();

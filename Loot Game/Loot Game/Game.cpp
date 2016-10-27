@@ -31,13 +31,14 @@ void Game::initialise(GameState* _initialState)
     srand(m_gameTimer.getElapsedTime().asMilliseconds());
 	m_running = true;
 	m_dt = 0;
-	m_updateInfo.m_dt = 0;
+	m_gameInfo.m_dt = 0;
 	m_renderInfo.m_target = &m_window;
 
 	m_input = new Input;
-	m_updateInfo.m_input = m_input;
-	m_stateManager = new StateManager(_initialState);
-	m_updateInfo.m_stateManager = m_stateManager;
+	m_gameInfo.m_input = m_input;
+	m_stateManager = new StateManager;
+	m_gameInfo.m_stateManager = m_stateManager;
+	m_stateManager->initialise(m_gameInfo, _initialState);
 	
 	m_gameTimer.restart();
 	m_loopTimer.restart();
@@ -52,8 +53,8 @@ void Game::update()
 	m_input->handleEvents(m_window);
 	m_dt = m_loopTimer.getElapsedTime().asSeconds();
 	m_loopTimer.restart();
-	m_updateInfo.m_dt = deltaTime();
-	m_stateManager->update(m_updateInfo);
+	m_gameInfo.m_dt = deltaTime();
+	m_stateManager->update(m_gameInfo);
 
 	if (m_stateManager->isEmpty())
 	{

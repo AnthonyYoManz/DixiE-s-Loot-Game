@@ -14,12 +14,15 @@ private:
 	std::vector<GameState*> m_upcomingStates;
 	//If not null, stacks will be cleared and this state will be the only one remaining
 	GameState* m_newState;
+	//If true then states will pop at next update's start
+	bool m_popState;
 
 	void mergeStates(const GameInfo& _info);
-	void cleanStates();
+	void cleanStates(const GameInfo& _info);
 public:
-	StateManager(GameState* _initialState);
+	StateManager();
 	~StateManager();
+	void initialise(const GameInfo& _info, GameState* _initialState);
 	void update(const GameInfo& _info);
 	void draw(const RenderInfo& _info);
 
