@@ -5,6 +5,24 @@
 
 const float Game::m_maxDt = 0.1;
 
+void Game::initialiseFactories()
+{
+	m_textureFactory.setLoaderFunc(
+		[](std::string _file)
+		{
+			sf::Texture* newTex = new sf::Texture;
+			newTex->loadFromFile(_file);
+			return newTex;
+		}
+	);
+	m_textureFactory.setDeleterFunc(
+		[](sf::Texture* _asset)
+		{
+			delete _asset;
+		}
+	);
+}
+
 Game::Game()
 {
 	m_running = false;
@@ -39,7 +57,9 @@ void Game::initialise(GameState* _initialState)
 	m_stateManager = new StateManager;
 	m_gameInfo.m_stateManager = m_stateManager;
 	m_stateManager->initialise(m_gameInfo, _initialState);
-	
+	initialiseFactories();
+	m_gameInfo.m_textureFactory = &m_textureFactory;
+
 	m_gameTimer.restart();
 	m_loopTimer.restart();
 }

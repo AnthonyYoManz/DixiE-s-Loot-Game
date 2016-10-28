@@ -1,8 +1,8 @@
-#include "game.h"
+#include "Game.h"
 #include "OtherTestScene.h"
 
 int main(){
-    Game game;
+	Game game;
     game.initialise(new OtherTestScene);
     while(game.isRunning()){
         game.update();
