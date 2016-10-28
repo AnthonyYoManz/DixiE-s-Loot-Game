@@ -1,13 +1,12 @@
 #pragma once
-#pragma once
 
 #include "GameInfo.h"
 #include "RenderInfo.h"
-#include "Scene.h"
+#include "GameState.h"
 
-class OtherTestScene : public Scene {
+class TestState : public GameState {
 public:
-	OtherTestScene();
+	TestState();
 	void initialise(const GameInfo& _info);
 	void update(const GameInfo& _info);
 	void draw(const RenderInfo& _info);

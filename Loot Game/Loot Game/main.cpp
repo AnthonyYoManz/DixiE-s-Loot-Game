@@ -1,9 +1,9 @@
 #include "Game.h"
-#include "OtherTestScene.h"
+#include "OtherTestState.h"
 
 int main(){
 	Game game;
-    game.initialise(new OtherTestScene);
+    game.initialise(new OtherTestState);
     while(game.isRunning()){
         game.update();
         game.draw();

@@ -129,12 +129,10 @@
     <ClInclude Include="Input.h" />
     <ClInclude Include="ObjectFactory.h" />
     <ClInclude Include="ObjectPool.h" />
-    <ClInclude Include="OtherTestScene.h" />
+    <ClInclude Include="OtherTestState.h" />
     <ClInclude Include="RenderInfo.h" />
-    <ClInclude Include="Scene.h" />
-    <ClInclude Include="SceneObject.h" />
     <ClInclude Include="StateManager.h" />
-    <ClInclude Include="TestScene.h" />
+    <ClInclude Include="TestState.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="GameInfo.h" />
   </ItemGroup>
@@ -146,8 +144,6 @@
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="OtherTestScene.cpp" />
-    <ClCompile Include="Scene.cpp" />
-    <ClCompile Include="SceneObject.cpp" />
     <ClCompile Include="StateManager.cpp" />
     <ClCompile Include="TestScene.cpp" />
     <ClCompile Include="Timer.cpp" />

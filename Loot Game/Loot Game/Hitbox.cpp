@@ -1,5 +1,4 @@
-#include "hitbox.h"
-#include "sceneObject.h"
+#include "Hitbox.h"
 #include <math.h>
 #include <limits>
 #include <iostream>

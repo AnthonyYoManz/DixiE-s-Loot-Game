@@ -1,6 +1,8 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include "ObjectFactory.h"
+#include "GameObject.h"
 #include "AssetFactory.h"
 #include "GameInfo.h"
 #include "RenderInfo.h"
@@ -24,6 +26,7 @@ private:
 	RenderInfo m_renderInfo;
 	StateManager* m_stateManager;
 	Input* m_input;
+	ObjectFactory<GameObject> m_objectFactory;
 	AssetFactory<sf::Texture> m_textureFactory;
 	void initialiseFactories();
 public:

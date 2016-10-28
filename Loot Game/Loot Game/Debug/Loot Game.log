@@ -1,17 +1,6 @@
-﻿  main.cpp
-  TestScene.cpp
-  Game.cpp
-d:\users\anthony\documents\programming\vc++\projects\dixie-s-loot-game\loot game\loot game\game.cpp(6): warning C4305: 'initializing': truncation from 'double' to 'float'
-  Generating Code...
-  Compiling...
-  StateManager.cpp
-  SceneObject.cpp
-  Scene.cpp
-  OtherTestScene.cpp
-  Hitbox.cpp
-  GameState.cpp
-  Generating Code...
-  Skipping... (no relevant changes detected)
+﻿  Hitbox.cpp
   GameObject.cpp
+  Generating Code...
+cl : Command line warning D9028: minimal rebuild failure, reverting to normal build
   Loot Game.vcxproj -> D:\Users\Anthony\Documents\Programming\VC++\Projects\DixiE-s-Loot-Game\Loot Game\Debug\Loot Game.exe
   Loot Game.vcxproj -> D:\Users\Anthony\Documents\Programming\VC++\Projects\DixiE-s-Loot-Game\Loot Game\Debug\Loot Game.pdb (Partial PDB)

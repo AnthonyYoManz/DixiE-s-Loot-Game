@@ -1,20 +1,20 @@
-#include "OtherTestScene.h"
+#include "OtherTestState.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "TestScene.h"
+#include "TestState.h"
 #include "StateManager.h"
 #include "Input.h"
 
-OtherTestScene::OtherTestScene()
+OtherTestState::OtherTestState()
 {
 }
 
-void OtherTestScene::initialise(const GameInfo & _info)
+void OtherTestState::initialise(const GameInfo & _info)
 {
-	_info.m_stateManager->pushState(new TestScene);
+	_info.m_stateManager->pushState(new TestState);
 }
 
-void OtherTestScene::update(const GameInfo & _info)
+void OtherTestState::update(const GameInfo & _info)
 {
 	if (_info.m_input->getInputActivated("exit"))
 	{
@@ -22,13 +22,13 @@ void OtherTestScene::update(const GameInfo & _info)
 	}
 }
 
-void OtherTestScene::draw(const RenderInfo & _info)
+void OtherTestState::draw(const RenderInfo & _info)
 {
 	sf::RectangleShape rect(sf::Vector2f(290, 290));
 	rect.setFillColor(sf::Color(100, 0, 0));
 	_info.m_target->draw(rect);
 }
 
-void OtherTestScene::cleanup(const GameInfo& _info)
+void OtherTestState::cleanup(const GameInfo& _info)
 {
 }
