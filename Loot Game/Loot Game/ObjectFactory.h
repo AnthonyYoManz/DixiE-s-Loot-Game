@@ -13,17 +13,27 @@ public:
 	{
 
 	}
+
 	~ObjectFactory()
 	{
 
 	}
 
 	//Add object creation function to map
-	void addCreator(std::string className, T* (*_func)())
+	void addCreator(std::string _className, T* (*_func)())
 	{
-		if (m_creatorFunctions[className] == 0)
+		if (m_creatorFunctions[_className] == 0)
 		{
-			m_creatorFunctions[className] = func;
+			m_creatorFunctions[_className] = func;
+		}
+	}
+
+	//Removes specified object creation function
+	void removeCreator(std::string _className)
+	{
+		if (m_creatorFunctions[_className] != 0)
+		{
+			m_creatorFunctions.erase(m_creatorFunctions.find(_className));
 		}
 	}
 

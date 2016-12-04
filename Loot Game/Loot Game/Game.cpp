@@ -59,6 +59,7 @@ void Game::initialise(GameState* _initialState)
 	m_stateManager->initialise(m_gameInfo, _initialState);
 	initialiseFactories();
 	m_gameInfo.m_textureFactory = &m_textureFactory;
+	m_gameInfo.m_objectFactory = &m_objectFactory;
 
 	m_gameTimer.restart();
 	m_loopTimer.restart();

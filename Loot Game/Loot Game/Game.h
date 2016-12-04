@@ -28,25 +28,43 @@ private:
 	Input* m_input;
 	ObjectFactory<GameObject> m_objectFactory;
 	AssetFactory<sf::Texture> m_textureFactory;
+
 	void initialiseFactories();
 public:
 	sf::RenderWindow m_window;
 	
 	Game();
 	~Game();
-	//primary functions
-	void initialise(GameState* initialState);
+	//Initialise the game
+	void initialise(GameState* _initialState);
+
+	//Poll for an event
 	bool pollEvent(sf::Event& event);
+
+	//Update/Tick
 	void update();
+
+	//Render step
 	void draw();
+
+	//Queue game closure
 	void quit();
+
+	//Deinitialise the game
 	void cleanup();
 
-	//setters
-	void setClearColour(sf::Color colour);
-	//getters
+	//Set screen background colour
+	void setClearColour(sf::Color _colour);
+	
+	//Returns whether or not the game is running
 	bool isRunning() const;
+
+	//Returns window size
 	sf::Vector2u getWindowSize() const;
+
+	//Returns duration game has been active in seconds
 	float getGameTime() const;
+	
+	//Returns time since last frame in seconds
 	float deltaTime() const;
 };
