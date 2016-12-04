@@ -1,11 +1,10 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-
-class Input;
-class StateManager;
-template<typename T> class AssetFactory;
-class GameObject;
-template<typename T> class ObjectFactory;
+#include "Input.h"
+#include "StateManager.h"
+#include "AssetFactory.h"
+#include "GameObject.h"
+#include "ObjectFactory.h"
 
 struct GameInfo
 {

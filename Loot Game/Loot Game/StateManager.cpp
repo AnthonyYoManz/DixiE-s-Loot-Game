@@ -1,5 +1,6 @@
 #include "StateManager.h"
 #include "GameState.h"
+#include <iostream>
 
 void StateManager::cleanStates(const GameInfo& _info)
 {
@@ -14,14 +15,31 @@ void StateManager::cleanStates(const GameInfo& _info)
 		delete state;
 	}
 	m_upcomingStates.clear();
+	_info.m_objectFactory->linkList(nullptr);
+}
+
+void StateManager::linkListToFactory(const GameInfo & _info)
+{
+	if (m_states.size() > 0)
+	{
+		_info.m_objectFactory->linkList(m_states.back()->getObjectList());
+		std::cout << m_states.back()->getName() << " object list linked\n";
+	}
+	else
+	{
+		_info.m_objectFactory->linkList(nullptr);
+		std::cout << "Object list unlinked from factory\n";
+	}
 }
 
 void StateManager::mergeStates(const GameInfo& _info)
 {
+	bool stateChange = false;
 	if (m_popState)
 	{
 		m_states.back()->cleanup(_info);
 		m_states.pop_back();
+		linkListToFactory(_info);
 		if (m_states.size() > 0)
 		{
 			m_states.back()->resume();
@@ -31,12 +49,13 @@ void StateManager::mergeStates(const GameInfo& _info)
 
 	for (auto& state : m_upcomingStates)
 	{
+		m_states.push_back(state);
+		linkListToFactory(_info);
 		state->initialise(_info);
 		if (m_states.size() > 0)
 		{
 			m_states.back()->resume();
 		}
-		m_states.push_back(state);
 	}
 	m_upcomingStates.clear();
 
@@ -44,6 +63,7 @@ void StateManager::mergeStates(const GameInfo& _info)
 	{
 		cleanStates(_info);
 		m_states.push_back(m_newState);
+		linkListToFactory(_info);
 		m_newState->initialise(_info);
 		m_newState = nullptr;
 	}

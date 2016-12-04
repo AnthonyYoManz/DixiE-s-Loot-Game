@@ -124,28 +124,39 @@
     <ClInclude Include="AssetFactory.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GameplayTestState.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="Hitbox.h" />
+    <ClInclude Include="InitState.h" />
     <ClInclude Include="Input.h" />
+    <ClInclude Include="ItemObject.h" />
     <ClInclude Include="ObjectFactory.h" />
-    <ClInclude Include="ObjectPool.h" />
     <ClInclude Include="OtherTestState.h" />
+    <ClInclude Include="PlayerObject.h" />
     <ClInclude Include="RenderInfo.h" />
+    <ClInclude Include="StateInfo.h" />
     <ClInclude Include="StateManager.h" />
+    <ClInclude Include="TestGunObject.h" />
     <ClInclude Include="TestState.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="GameInfo.h" />
+    <ClInclude Include="WeaponObject.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GameplayTestState.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="Hitbox.cpp" />
+    <ClCompile Include="InitState.cpp" />
     <ClCompile Include="Input.cpp" />
+    <ClCompile Include="ItemObject.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="OtherTestScene.cpp" />
+    <ClCompile Include="OtherTestState.cpp" />
+    <ClCompile Include="PlayerObject.cpp" />
     <ClCompile Include="StateManager.cpp" />
-    <ClCompile Include="TestScene.cpp" />
+    <ClCompile Include="TestGunObject.cpp" />
+    <ClCompile Include="TestState.cpp" />
     <ClCompile Include="Timer.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

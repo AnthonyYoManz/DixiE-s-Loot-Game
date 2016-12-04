@@ -1,16 +1,3 @@
-﻿  Timer.cpp
-  TestScene.cpp
-  StateManager.cpp
-  OtherTestScene.cpp
-  main.cpp
-  Input.cpp
-d:\users\anthony\documents\programming\vc++\projects\dixie-s-loot-game\loot game\loot game\input.cpp(137): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\users\anthony\documents\programming\vc++\projects\dixie-s-loot-game\loot game\loot game\input.cpp(177): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  Hitbox.cpp
-  GameState.cpp
-  GameObject.cpp
-  Game.cpp
-d:\users\anthony\documents\programming\vc++\projects\dixie-s-loot-game\loot game\loot game\game.cpp(6): warning C4305: 'initializing': truncation from 'double' to 'float'
-  Generating Code...
+﻿  PlayerObject.cpp
   Loot Game.vcxproj -> D:\Users\Anthony\Documents\Programming\VC++\Projects\DixiE-s-Loot-Game\Loot Game\Debug\Loot Game.exe
   Loot Game.vcxproj -> D:\Users\Anthony\Documents\Programming\VC++\Projects\DixiE-s-Loot-Game\Loot Game\Debug\Loot Game.pdb (Partial PDB)

@@ -1,8 +1,8 @@
 #pragma once
 #include <vector>
-#include "GameInfo.h"
 #include "RenderInfo.h"
 
+struct GameInfo;
 class GameState;
 
 class StateManager
@@ -19,6 +19,7 @@ private:
 
 	void mergeStates(const GameInfo& _info);
 	void cleanStates(const GameInfo& _info);
+	void linkListToFactory(const GameInfo& _info);
 public:
 	StateManager();
 	~StateManager();

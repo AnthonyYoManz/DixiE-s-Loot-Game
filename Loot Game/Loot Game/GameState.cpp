@@ -17,3 +17,13 @@ bool GameState::getLayered()
 {
 	return m_layered;
 }
+
+std::string GameState::getName()
+{
+	return m_name;
+}
+
+std::vector<GameObject*>* GameState::getObjectList()
+{
+	return &m_objects;
+}

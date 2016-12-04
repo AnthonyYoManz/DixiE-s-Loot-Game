@@ -1,7 +1,22 @@
 #include "GameObject.h"
 
 std::string GameObject::getName(){
-    return name;
+    return m_name;
+}
+
+void GameObject::initialise(const GameInfo & _gameInfo, const StateInfo & _stateInfo, unsigned int _handle, sf::Vector2f _position)
+{
+	m_active = true;
+	m_handle = _handle;
+	m_position = _position;
+	m_velocity = { 0, 0 };
+	m_controlledVelocity = { 0, 0 };
+	m_moveSpeed = 0.f;
+}
+
+bool GameObject::isActive()
+{
+	return m_active;
 }
 
 sf::Vector2f GameObject::getPosition()
@@ -14,6 +29,40 @@ sf::Vector2f GameObject::getVelocity()
 	return m_velocity;
 }
 
+sf::Vector2f GameObject::getDirection()
+{
+	sf::Vector2f dir = m_velocity;
+	float velMag = m_velocity.x * m_velocity.x + m_velocity.y * m_velocity.y;
+	velMag = sqrt(velMag);
+	if (velMag == 0)
+	{
+		dir = sf::Vector2f(0, 0);
+	}
+	else
+	{
+		dir.x = m_velocity.x / velMag;
+		dir.y = m_velocity.y / velMag;
+	}
+	return dir;
+}
+
+sf::Vector2f GameObject::getControlledDirection()
+{
+	sf::Vector2f dir = m_controlledVelocity;
+	float velMag = m_controlledVelocity.x * m_controlledVelocity.x + m_controlledVelocity.y * m_controlledVelocity.y;
+	velMag = sqrt(velMag);
+	if (velMag == 0)
+	{
+		dir = sf::Vector2f(0, 0);
+	}
+	else
+	{
+		dir.x = m_controlledVelocity.x / velMag;
+		dir.y = m_controlledVelocity.y / velMag;
+	}
+	return dir;
+}
+
 float GameObject::getRotation()
 {
 	return m_rotation;
@@ -24,9 +73,14 @@ unsigned int GameObject::getHandle()
 	return m_handle;
 }
 
+void GameObject::setActive(bool _active)
+{
+	m_active = _active;
+}
+
 void GameObject::lookAt(sf::Vector2f point)
 {
-	m_rotation = (float)atan2((m_position.y - point.y), (point.x - m_position.x)) * 180.f / 3.14f;
+	m_rotation = -(float)atan2((m_position.y - point.y), (point.x - m_position.x)) * 180.f / 3.14f;
 }
 
 void GameObject::setRotation(float _rotation)

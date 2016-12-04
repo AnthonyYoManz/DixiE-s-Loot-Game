@@ -37,6 +37,7 @@ class Input
 {
 protected:
 	std::map< std::string, std::vector<InputDefinition> > m_inputMap;
+	sf::Vector2f m_mousePosition;
 public:
 	Input();
 	~Input();
@@ -55,4 +56,6 @@ public:
 	float getAxisPosition(std::string _name);
 	bool getInputActive(std::string _name);
 	bool getInputActivated(std::string _name);
+	sf::Vector2f getMousePosition();
+	sf::Vector2f getGlobalMousePosition();
 };

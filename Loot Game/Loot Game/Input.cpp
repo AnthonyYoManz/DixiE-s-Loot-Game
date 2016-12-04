@@ -8,95 +8,136 @@ Input::~Input()
 	clearMaps();
 }
 
-void Input::handleEvents(sf::RenderWindow& window){
+void Input::handleEvents(sf::RenderWindow& window)
+{
+	m_mousePosition = sf::Vector2f(sf::Mouse::getPosition(window));
 	sf::Event event;
-	while (window.pollEvent(event)){
-        for(auto& mapIterator : m_inputMap){
-            for(auto& definedIterator : mapIterator.second){
-                if(definedIterator.m_type == InputType::MISC){
-                    if(event.type == definedIterator.m_event){
+	while (window.pollEvent(event))
+	{
+        for(auto& mapIterator : m_inputMap)
+		{
+            for(auto& definedIterator : mapIterator.second)
+			{
+                if(definedIterator.m_type == InputType::MISC)
+				{
+                    if(event.type == definedIterator.m_event)
+					{
                         definedIterator.m_activated = true;
                     }
                 }
-                else if(definedIterator.m_type == InputType::KEY){
-                    if(event.type == sf::Event::KeyPressed){
-                        if(event.key.code == definedIterator.m_key){
-                            if(!definedIterator.m_activated){
+                else if(definedIterator.m_type == InputType::KEY)
+				{
+                    if(event.type == sf::Event::KeyPressed)
+					{
+                        if(event.key.code == definedIterator.m_key)
+						{
+                            if(!definedIterator.m_activated)
+							{
                                 definedIterator.m_active = true;
                             }
                             definedIterator.m_activated = true;
                         }
                     }
-                    if(event.type == sf::Event::KeyReleased){
-                        if(event.key.code == definedIterator.m_key){
+                    if(event.type == sf::Event::KeyReleased)
+					{
+                        if(event.key.code == definedIterator.m_key)
+						{
                             definedIterator.m_active = false;
                         }
                     }
                 }
-                else if(definedIterator.m_type == InputType::MOUSE_BUTTON){
-                    if(event.type == sf::Event::MouseButtonPressed){
-                        if(event.mouseButton.button == definedIterator.m_mouseButton){
+                else if(definedIterator.m_type == InputType::MOUSE_BUTTON)
+				{
+                    if(event.type == sf::Event::MouseButtonPressed)
+					{
+                        if(event.mouseButton.button == definedIterator.m_mouseButton)
+						{
                             definedIterator.m_active = true;
                             definedIterator.m_activated = true;
                         }
                     }
-                    if(event.type == sf::Event::MouseButtonReleased){
-                        if(event.mouseButton.button == definedIterator.m_mouseButton){
+                    if(event.type == sf::Event::MouseButtonReleased)
+					{
+                        if(event.mouseButton.button == definedIterator.m_mouseButton)
+						{
                             definedIterator.m_active = false;
                         }
                     }
                 }
                 //MOUSE WHEEL INPUT NEEDS TESTING
-                else if(definedIterator.m_type == InputType::MOUSE_WHEEL){
-                    if(event.type == sf::Event::MouseWheelScrolled){
-                        if(definedIterator.m_mouseWheelPositive){
-                            if(event.mouseWheelScroll.delta > 0){
+                else if(definedIterator.m_type == InputType::MOUSE_WHEEL)
+				{
+                    if(event.type == sf::Event::MouseWheelScrolled)
+					{
+                        if(definedIterator.m_mouseWheelPositive)
+						{
+                            if(event.mouseWheelScroll.delta > 0)
+							{
                                 definedIterator.m_activated = true;
                             }
                         }
-                        else{
-                            if(event.mouseWheelScroll.delta < 0){
+                        else
+						{
+                            if(event.mouseWheelScroll.delta < 0)
+							{
                                 definedIterator.m_activated = true;
                             }
                         }
                     }
                 }
-                else if(definedIterator.m_type == InputType::JOY_BUTTON){
-                    if(event.type == sf::Event::JoystickButtonPressed){
-                        if(event.joystickButton.button == definedIterator.m_joyButton){
-                            if(event.joystickButton.joystickId == definedIterator.m_joyNumber){
+                else if(definedIterator.m_type == InputType::JOY_BUTTON)
+				{
+                    if(event.type == sf::Event::JoystickButtonPressed)
+					{
+                        if(event.joystickButton.button == definedIterator.m_joyButton)
+						{
+                            if(event.joystickButton.joystickId == definedIterator.m_joyNumber)
+							{
                                 definedIterator.m_active = true;
                                 definedIterator.m_activated = true;
                             }
                         }
                     }
-                    if(event.type == sf::Event::JoystickButtonReleased){
-                        if(event.joystickButton.button == definedIterator.m_joyButton){
-                            if(event.joystickButton.joystickId == definedIterator.m_joyNumber){
+                    if(event.type == sf::Event::JoystickButtonReleased)
+					{
+                        if(event.joystickButton.button == definedIterator.m_joyButton)
+						{
+                            if(event.joystickButton.joystickId == definedIterator.m_joyNumber)
+							{
                                 definedIterator.m_active = false;
                             }
                         }
                     }
                 }
-                else if(definedIterator.m_type == InputType::JOY_AXIS_DIR){
-                    if(event.type == sf::Event::JoystickMoved){
-                        if(event.joystickMove.joystickId == definedIterator.m_joyNumber){
-                            if(event.joystickMove.axis == definedIterator.m_joyAxis){
-                                if(definedIterator.m_joyAxisPositive){
-                                    if(event.joystickMove.position > definedIterator.m_joyAxisDeadZone){
+                else if(definedIterator.m_type == InputType::JOY_AXIS_DIR)
+				{
+                    if(event.type == sf::Event::JoystickMoved)
+					{
+                        if(event.joystickMove.joystickId == definedIterator.m_joyNumber)
+						{
+                            if(event.joystickMove.axis == definedIterator.m_joyAxis)
+							{
+                                if(definedIterator.m_joyAxisPositive)
+								{
+                                    if(event.joystickMove.position > definedIterator.m_joyAxisDeadZone)
+									{
                                         definedIterator.m_activated = true;
                                         definedIterator.m_active = true;
                                     }
-                                    else{
+                                    else
+									{
                                         definedIterator.m_active = false;
                                     }
                                 }
-                                else{
-                                    if(event.joystickMove.position < -definedIterator.m_joyAxisDeadZone){
+                                else
+								{
+                                    if(event.joystickMove.position < -definedIterator.m_joyAxisDeadZone)
+									{
                                         definedIterator.m_activated = true;
                                         definedIterator.m_active = true;
                                     }
-                                    else{
+                                    else
+									{
                                         definedIterator.m_active = false;
                                     }
                                 }
@@ -106,6 +147,12 @@ void Input::handleEvents(sf::RenderWindow& window){
                 }
             }
         }
+		if (event.type == sf::Event::Resized)
+		{
+			sf::View view = window.getDefaultView();
+			view = sf::View(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y));
+			window.setView(view);
+		}
 	}
 }
 
@@ -205,6 +252,17 @@ bool Input::getInputActivated(std::string name){
         }
     }
 	return false;
+}
+
+sf::Vector2f Input::getMousePosition()
+{
+	return m_mousePosition;
+}
+
+sf::Vector2f Input::getGlobalMousePosition()
+{
+	
+	return sf::Vector2f(sf::Mouse::getPosition());
 }
 
 void Input::cleanEvents(){

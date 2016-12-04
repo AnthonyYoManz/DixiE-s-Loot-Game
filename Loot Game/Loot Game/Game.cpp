@@ -1,6 +1,7 @@
 #include "Game.h"
 #include <cstdlib>
 #include "StateManager.h"
+#include "InitState.h"
 #include "Input.h"
 
 const float Game::m_maxDt = 0.1;
@@ -56,10 +57,12 @@ void Game::initialise(GameState* _initialState)
 	m_gameInfo.m_input = m_input;
 	m_stateManager = new StateManager;
 	m_gameInfo.m_stateManager = m_stateManager;
-	m_stateManager->initialise(m_gameInfo, _initialState);
+
 	initialiseFactories();
 	m_gameInfo.m_textureFactory = &m_textureFactory;
 	m_gameInfo.m_objectFactory = &m_objectFactory;
+
+	m_stateManager->initialise(m_gameInfo, new InitState(_initialState));
 
 	m_gameTimer.restart();
 	m_loopTimer.restart();
