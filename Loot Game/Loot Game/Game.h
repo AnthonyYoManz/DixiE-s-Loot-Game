@@ -6,7 +6,7 @@
 #include "AssetFactory.h"
 #include "GameInfo.h"
 #include "RenderInfo.h"
-#include "Clock.h"
+#include "Debugger.h"
 
 
 class Input;
@@ -29,6 +29,7 @@ private:
 	Input* m_input;
 	ObjectFactory<GameObject> m_objectFactory;
 	AssetFactory<sf::Texture> m_textureFactory;
+	Debugger m_debug;
 
 	void initialiseFactories();
 public:

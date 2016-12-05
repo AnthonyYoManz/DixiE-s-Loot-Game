@@ -125,6 +125,7 @@
     <ClInclude Include="AssetFactory.h" />
     <ClInclude Include="Clock.h" />
     <ClInclude Include="Counter.h" />
+    <ClInclude Include="Debugger.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameplayTestState.h" />
@@ -148,6 +149,7 @@
   <ItemGroup>
     <ClCompile Include="Clock.cpp" />
     <ClCompile Include="Counter.cpp" />
+    <ClCompile Include="Debugger.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameplayTestState.cpp" />

@@ -19,6 +19,11 @@ struct WeaponStats
 	float m_spreadRate;
 	float m_despreadRate;
 
+	//Ammo params
+	unsigned int m_clipSize;
+	unsigned int m_ammoPerProjectile;
+	unsigned int m_reloadTime;
+
 	//Weapon Range
 	int m_range;
 
@@ -41,6 +46,10 @@ protected:
 	WeaponStats m_perkedStats;
 	//Timer that manages shot cooldown
 	Counter m_cooldownCounter;
+	//Timer that manages reloading
+	Counter m_reloadCounter;
+	//Current ammo in clip
+	unsigned int m_currentAmmo;
 	//Current spread amount
 	float m_spread;
 	//Trigger held

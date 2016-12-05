@@ -2,7 +2,6 @@
 
 #include <map>
 #include <string>
-#include <iostream>
 #include <functional>
 
 template <typename T>
@@ -51,7 +50,6 @@ public:
 		T* object = m_creatorFunctions[_className]();
 		if (m_linkedList)
 		{
-			std::cout << "Object added to linked list by factory\n";
 			m_linkedList->push_back(object);
 		}
 		return object;

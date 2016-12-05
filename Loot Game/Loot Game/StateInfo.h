@@ -9,4 +9,5 @@
 struct StateInfo
 {
 	std::vector<GameObject*>* m_destroyRequests;
+	std::vector<GameObject*>* m_objects;
 };

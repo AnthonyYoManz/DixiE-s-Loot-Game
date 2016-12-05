@@ -2,7 +2,6 @@
 #include "GameInfo.h"
 #include "WeaponObject.h"
 #include "TestGunObject.h"
-#include <iostream>
 
 void PlayerObject::initialise(const GameInfo& _gameInfo, const StateInfo& _stateInfo, unsigned int _handle, sf::Vector2f _position)
 {

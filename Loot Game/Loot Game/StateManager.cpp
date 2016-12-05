@@ -1,6 +1,5 @@
 #include "StateManager.h"
 #include "GameState.h"
-#include <iostream>
 
 void StateManager::cleanStates(const GameInfo& _info)
 {
@@ -23,12 +22,12 @@ void StateManager::linkListToFactory(const GameInfo & _info)
 	if (m_states.size() > 0)
 	{
 		_info.m_objectFactory->linkList(m_states.back()->getObjectList());
-		std::cout << m_states.back()->getName() << " object list linked\n";
+		_info.m_debug->print(m_states.back()->getName() + " object list linked\n");
 	}
 	else
 	{
 		_info.m_objectFactory->linkList(nullptr);
-		std::cout << "Object list unlinked from factory\n";
+		_info.m_debug->print("Object list unlinked from factory\n");
 	}
 }
 

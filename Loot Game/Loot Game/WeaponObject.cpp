@@ -2,7 +2,7 @@
 
 void WeaponObject::update(const GameInfo & _gameInfo, const StateInfo & _stateInfo)
 {
-	if (m_perkedStats.m_automatic)
+	if (m_perkedStats.m_automatic && m_currentAmmo>0)
 	{
 		if (!m_triggerDown)
 		{
@@ -30,7 +30,15 @@ void WeaponObject::update(const GameInfo & _gameInfo, const StateInfo & _stateIn
 	{
 		m_spread = m_perkedStats.m_minSpread;
 	}
+	if (m_reloadCounter.check() && m_currentAmmo <= 0)
+	{
+		m_currentAmmo = m_perkedStats.m_clipSize;
+	}
 	m_cooldownCounter.add();
+	if (m_currentAmmo <= 0)
+	{
+		m_reloadCounter.add();
+	}
 }
 
 void WeaponObject::setTriggerDown(bool _down)

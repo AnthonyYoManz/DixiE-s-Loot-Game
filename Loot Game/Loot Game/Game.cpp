@@ -24,8 +24,12 @@ void Game::initialiseFactories()
 	);
 }
 
-Game::Game()
+Game::Game() : m_debug("debug_log.txt")
 {
+	m_debug.setActive(false);
+#ifdef _DEBUG
+	m_debug.setActive(true);
+#endif
 	m_running = false;
 	m_stateManager = nullptr;
 	m_input = nullptr;
@@ -62,6 +66,7 @@ void Game::initialise(GameState* _initialState)
 	initialiseFactories();
 	m_gameInfo.m_textureFactory = &m_textureFactory;
 	m_gameInfo.m_objectFactory = &m_objectFactory;
+	m_gameInfo.m_debug = &m_debug;
 
 	m_stateManager->initialise(m_gameInfo, new InitState(_initialState));
 

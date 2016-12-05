@@ -8,6 +8,8 @@ struct StateInfo;
 
 class GameObject
 {
+private:
+	sf::Vector2f normalise(sf::Vector2f _src) const;
 protected:
 	bool m_active;
 	std::string m_name;
@@ -24,23 +26,29 @@ public:
 	virtual void cleanup(const GameInfo& _gameInfo, const StateInfo& _stateInfo) = 0;
 
 	//Getters
-	bool isActive();
-	sf::Vector2f getPosition();
-	sf::Vector2f getVelocity();
-	sf::Vector2f getDirection();
-	sf::Vector2f getControlledDirection();
-	float getRotation();
-	unsigned int getHandle();
-	std::string getName();
+	bool isActive() const;
+	sf::Vector2f getPosition() const;
+	sf::Vector2f getVelocity() const;
+	sf::Vector2f getDirection() const;
+	sf::Vector2f getControlledDirection() const;
+	float getRotation() const;
+	unsigned int getHandle() const;
+	std::string getName() const;
 
 	//Setters
 	void setActive(bool _active);
-	void lookAt(sf::Vector2f _point);
 	void setRotation(float _rotation);
 	void setVelocity(sf::Vector2f _velocity);
-	void setVelocityByDirection(sf::Vector2f _direction, float _magnitude);
-	void setVelocityByRotation(float _rotation, float _magnitude);
+	void setVelocity(sf::Vector2f _direction, float _magnitude);
+	void setVelocity(float _rotation, float _magnitude);
 	void setPosition(sf::Vector2f _position);
 
+	void lookAt(sf::Vector2f _point);
+	void translate(sf::Vector2f _translation);
+	void translate(float _angle, float _magnitude);
+	void translate(sf::Vector2f _direction, float _magnitude);
+	void changeVelocity(sf::Vector2f _change);
+	void changeVelocity(sf::Vector2f _direction, float _magnitude);
+	void changeVelocity(float _angle, float _magnitude);
 };
 

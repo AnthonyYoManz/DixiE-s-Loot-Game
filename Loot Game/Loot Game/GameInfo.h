@@ -5,9 +5,11 @@
 #include "AssetFactory.h"
 #include "GameObject.h"
 #include "ObjectFactory.h"
+#include "Debugger.h"
 
 struct GameInfo
 {
+	Debugger* m_debug;
 	StateManager* m_stateManager;
 	Input* m_input;
 	AssetFactory<sf::Texture>* m_textureFactory;

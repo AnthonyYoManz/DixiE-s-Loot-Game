@@ -1,7 +1,6 @@
 #include "Hitbox.h"
 #include <math.h>
 #include <limits>
-#include <iostream>
 
 void Hitbox::update(sf::Vector2f _position, float _rotation, sf::Vector2f _velocity){
     m_position = _position;

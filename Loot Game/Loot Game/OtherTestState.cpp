@@ -1,6 +1,5 @@
 #include "OtherTestState.h"
 #include <SFML/Graphics.hpp>
-#include <iostream>
 #include "TestState.h"
 #include "StateManager.h"
 #include "Input.h"

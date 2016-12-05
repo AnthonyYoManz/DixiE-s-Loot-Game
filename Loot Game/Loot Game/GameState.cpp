@@ -3,6 +3,7 @@
 void GameState::initialise(const GameInfo & _info)
 {
 	m_stateInfo.m_destroyRequests = &m_destroyRequests;
+	m_stateInfo.m_objects = &m_objects;
 	m_layered = false;
 }
 
