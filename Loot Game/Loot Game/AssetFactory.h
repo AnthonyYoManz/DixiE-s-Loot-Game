@@ -1,6 +1,7 @@
 #pragma once
 #include <map>
 #include <string>
+#include <functional>
 
 template <typename T>
 struct Asset
@@ -14,8 +15,8 @@ class AssetFactory
 {
 private:
 	std::map<std::string, Asset<T>> m_assets;
-	T*(*m_loaderFunc)(std::string _file);
-	void(*m_deleterFunc)(T* _asset);
+	std::function<T*(std::string _file)> m_loaderFunc;
+	std::function<void(T* _asset)> m_deleterFunc;
 public:
 	AssetFactory()
 	{
@@ -30,12 +31,12 @@ public:
 		m_assets.clear();
 	}
 
-	void setLoaderFunc(T*(*_func)(std::string _file))
+	void setLoaderFunc(std::function<T*(std::string _file)> _func)
 	{
 		m_loaderFunc = _func;
 	}
 
-	void setDeleterFunc(void(*_func)(T* _asset))
+	void setDeleterFunc(std::function<void(T* _asset)> _func)
 	{
 		m_deleterFunc = _func;
 	}

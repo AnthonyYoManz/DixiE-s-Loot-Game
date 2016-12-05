@@ -3,11 +3,12 @@
 
 GameplayTestState::GameplayTestState()
 {
-	m_name = "Gameplay Test State";
+	m_name = "GameplayTestState";
 }
 
 void GameplayTestState::initialise(const GameInfo& _info)
 {
+	GameState::initialise(_info);
 	PlayerObject* player1 = (PlayerObject*)(_info.m_objectFactory->createObject("player"));
 	if (player1)
 	{
@@ -23,13 +24,17 @@ void GameplayTestState::update(const GameInfo& _info)
 		_info.m_stateManager->popState();
 	}
 	
-	for (auto* object : m_objects)
+	unsigned int objCount = m_objects.size();
+	//range based loop suffers when the list changes size mid-loop
+	for (unsigned int i=0; i<objCount;i++)
 	{
-		if (object->isActive())
+		if (m_objects.at(i)->isActive())
 		{
-			object->update(_info, m_stateInfo);
+			m_objects.at(i)->update(_info, m_stateInfo);
 		}
 	}
+
+	handleDestroyRequests(_info);
 }
 
 void GameplayTestState::draw(const RenderInfo& _info)

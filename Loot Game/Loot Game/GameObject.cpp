@@ -93,6 +93,29 @@ void GameObject::setVelocity(sf::Vector2f _velocity)
 	m_velocity = _velocity;
 }
 
+void GameObject::setVelocityByDirection(sf::Vector2f _direction, float _magnitude)
+{
+	sf::Vector2f dir =_direction;
+	float dirMag = _direction.x * _direction.x + _direction.y * _direction.y;
+	dirMag = sqrt(dirMag);
+	if (dirMag == 0)
+	{
+		dir = sf::Vector2f(0, 0);
+	}
+	else
+	{
+		dir.x = _direction.x / dirMag;
+		dir.y = _direction.y / dirMag;
+	}
+	m_velocity = dir * _magnitude;
+}
+
+void GameObject::setVelocityByRotation(float _rotation, float _magnitude)
+{
+	m_velocity.x = cos(_rotation * 3.14f / 180.f) * _magnitude;
+	m_velocity.y = -sin(_rotation * 3.14f / 180.f) * _magnitude;
+}
+
 void GameObject::setPosition(sf::Vector2f _position)
 {
 	m_position = _position;

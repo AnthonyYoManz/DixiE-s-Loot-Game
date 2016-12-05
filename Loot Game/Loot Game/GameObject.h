@@ -38,6 +38,8 @@ public:
 	void lookAt(sf::Vector2f _point);
 	void setRotation(float _rotation);
 	void setVelocity(sf::Vector2f _velocity);
+	void setVelocityByDirection(sf::Vector2f _direction, float _magnitude);
+	void setVelocityByRotation(float _rotation, float _magnitude);
 	void setPosition(sf::Vector2f _position);
 
 };

@@ -14,13 +14,14 @@ class GameState
 protected:
 	std::string m_name;
 	std::vector<GameObject*> m_objects;
+	std::vector<GameObject*> m_destroyRequests;
 	bool m_layered;
 	StateInfo m_stateInfo;
 public:
 	virtual ~GameState() {};
 	
 	//Initialise the state
-	virtual void initialise(const GameInfo& _info) = 0;
+	virtual void initialise(const GameInfo& _info);
 
 	//Update/tick
 	virtual void update(const GameInfo& _info) = 0;
@@ -48,5 +49,8 @@ public:
 
 	//Returns pointer to m_objects
 	std::vector<GameObject*>* getObjectList();
+
+	//Cleanly destroys objects listed in m_stateInfo.destroyRequests
+	void handleDestroyRequests(const GameInfo& _info);
 };
 

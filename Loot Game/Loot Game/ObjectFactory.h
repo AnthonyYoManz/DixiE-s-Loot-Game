@@ -3,12 +3,13 @@
 #include <map>
 #include <string>
 #include <iostream>
+#include <functional>
 
 template <typename T>
 class ObjectFactory 
 {
 private:
-	std::map<std::string, T* (*)()> m_creatorFunctions;
+	std::map<std::string, std::function<T*()>> m_creatorFunctions;
 	//not a linked list, but the list the factory is linked to
 	std::vector<T*>* m_linkedList;
 public:
@@ -23,7 +24,7 @@ public:
 	}
 
 	//Add object creation function to map
-	void addCreator(std::string _className, T* (*_func)())
+	void addCreator(std::string _className, std::function<T*()> _func)
 	{
 		if (m_creatorFunctions.find(_className) == m_creatorFunctions.end())
 		{

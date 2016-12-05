@@ -7,6 +7,7 @@
 void PlayerObject::initialise(const GameInfo& _gameInfo, const StateInfo& _stateInfo, unsigned int _handle, sf::Vector2f _position)
 {
 	GameObject::initialise(_gameInfo, _stateInfo, _handle, _position);
+	m_leftTriggerDown = false;
 	m_health = 100;
 	m_radius = 15;
 	m_playerNumber = 1;
@@ -19,8 +20,13 @@ void PlayerObject::update(const GameInfo& _gameInfo, const StateInfo& _stateInfo
 {
 	handleInputs(_gameInfo, _stateInfo);
 	m_position += getControlledDirection()*m_moveSpeed;
-	m_gun->setPosition(m_position);
-	m_gun->setRotation(m_rotation);
+	lookAt(_gameInfo.m_input->getMousePosition());
+	if (m_gun)
+	{
+		m_gun->setPosition(m_position);
+		m_gun->setRotation(m_rotation);
+		m_gun->setTriggerDown(m_leftTriggerDown);
+	}
 }
 
 void PlayerObject::draw(const RenderInfo& _renderInfo, const StateInfo& _stateInfo)
@@ -70,5 +76,12 @@ void PlayerObject::handleInputs(const GameInfo& _gameInfo, const StateInfo& _sta
 	{
 		m_controlledVelocity.y = 0;
 	}
-	lookAt(_gameInfo.m_input->getMousePosition());
+	if (_gameInfo.m_input->getInputActive("p1l1"))
+	{
+		m_leftTriggerDown = true;
+	}
+	else
+	{
+		m_leftTriggerDown = false;
+	}
 }

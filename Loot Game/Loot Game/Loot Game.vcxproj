@@ -81,6 +81,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <AdditionalOptions>/FS %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <AdditionalDependencies>sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -122,6 +123,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="AssetFactory.h" />
+    <ClInclude Include="Clock.h" />
+    <ClInclude Include="Counter.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameplayTestState.h" />
@@ -136,13 +139,15 @@
     <ClInclude Include="RenderInfo.h" />
     <ClInclude Include="StateInfo.h" />
     <ClInclude Include="StateManager.h" />
+    <ClInclude Include="TestBulletObject.h" />
     <ClInclude Include="TestGunObject.h" />
     <ClInclude Include="TestState.h" />
-    <ClInclude Include="Timer.h" />
     <ClInclude Include="GameInfo.h" />
     <ClInclude Include="WeaponObject.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Clock.cpp" />
+    <ClCompile Include="Counter.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameplayTestState.cpp" />
@@ -155,9 +160,10 @@
     <ClCompile Include="OtherTestState.cpp" />
     <ClCompile Include="PlayerObject.cpp" />
     <ClCompile Include="StateManager.cpp" />
+    <ClCompile Include="TestBulletObject.cpp" />
     <ClCompile Include="TestGunObject.cpp" />
     <ClCompile Include="TestState.cpp" />
-    <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="WeaponObject.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -44,7 +44,8 @@ void Game::initialise(GameState* _initialState)
     //window.create(sf::VideoMode::getDesktopMode(), "Equipment Test", sf::Style::Fullscreen);
 	//Windowed
 	m_window.create(sf::VideoMode(640, 480), "Equipment Test", sf::Style::Default);
-	m_window.setVerticalSyncEnabled(true);
+	//m_window.setVerticalSyncEnabled(true);
+	m_window.setFramerateLimit(60);
 	m_windowSize = m_window.getSize();
 	m_clearColour = sf::Color(0, 0, 0, 255);
     srand(m_gameTimer.getElapsedTime().asMilliseconds());

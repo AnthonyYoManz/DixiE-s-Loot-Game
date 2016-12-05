@@ -6,6 +6,7 @@
 #include "AssetFactory.h"
 #include "GameInfo.h"
 #include "RenderInfo.h"
+#include "Clock.h"
 
 
 class Input;
