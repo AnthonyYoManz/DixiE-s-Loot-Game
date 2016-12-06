@@ -21,7 +21,7 @@ void TestGunObject::initialise(const GameInfo & _gameInfo, const StateInfo & _st
 	stats.m_ammoPerProjectile = 1;
 	stats.m_reloadTime = 45;
 	stats.m_clipSize = 12;
-	stats.m_recoil = 0.4f;
+	stats.m_recoil = 1.1f;
 	
 	m_baseStats = stats;
 	m_perkedStats = stats;

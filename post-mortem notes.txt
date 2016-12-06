@@ -1,7 +1,7 @@
 ObjectFactory
 	- Factory should return handles instead of pointers
 	- Get pointers with getObject<type>(handle);
-	- Factory handles create+delete requests
+	- Factory deals with create+delete requests
 	- handleCreationRequests()
 	- handleDeletionRequests()
 	- Linking to a state list is good
