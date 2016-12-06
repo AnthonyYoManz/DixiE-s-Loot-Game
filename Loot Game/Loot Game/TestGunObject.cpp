@@ -1,25 +1,27 @@
 #include "TestGunObject.h"
 #include "GameInfo.h"
 #include "TestBulletObject.h"
+#include "CharacterObject.h"
 
 void TestGunObject::initialise(const GameInfo & _gameInfo, const StateInfo & _stateInfo, unsigned int _handle, sf::Vector2f _position)
 {
-	GameObject::initialise(_gameInfo, _stateInfo, _handle, _position);
+	ItemObject::initialise(_gameInfo, _stateInfo, _handle, _position);
 	WeaponStats stats;
 	stats.m_automatic = true;
 	stats.m_damage = 6;
-	stats.m_attackCooldown = 5;
-	stats.m_maxSpread = 12;
+	stats.m_attackCooldown = 8;
+	stats.m_maxSpread = 35;
 	stats.m_minSpread = 3;
 	stats.m_spreadRate = 1;
 	stats.m_despreadRate = 1;
 	stats.m_projectilesPerShot = 1;
 	stats.m_range = 400;
-	stats.m_projectileSpeed = 5;
+	stats.m_projectileSpeed = 15;
 	stats.m_aimGuide = true;
 	stats.m_ammoPerProjectile = 1;
 	stats.m_reloadTime = 45;
-	stats.m_clipSize = 20;
+	stats.m_clipSize = 12;
+	stats.m_recoil = 0.4f;
 	
 	m_baseStats = stats;
 	m_perkedStats = stats;
@@ -44,7 +46,7 @@ void TestGunObject::draw(const RenderInfo & _renderInfo, const StateInfo & _stat
 	rect.setFillColor({ 255, 0, 0 });
 	rect.setRotation(m_rotation);
 
-	if (m_perkedStats.m_aimGuide)
+	if (m_perkedStats.m_aimGuide && m_holder)
 	{
 		sf::Vector2f gunTipOffset = { 0, 0 };
 		gunTipOffset.x = cos(-m_rotation * 3.14f / 180.f) * 19;
@@ -76,7 +78,8 @@ void TestGunObject::attack(const GameInfo& _gameInfo, const StateInfo & _stateIn
 {
 	if (m_cooldownCounter.check() && m_currentAmmo > 0)
 	{
-		m_cooldownCounter.restart();
+		m_cooldownCounter.restart(m_perkedStats.m_attackCooldown);
+		m_reloadCounter.restart(m_perkedStats.m_reloadTime);
 		unsigned int projectiles = m_perkedStats.m_projectilesPerShot;
 		if (projectiles > m_currentAmmo)
 		{
@@ -95,12 +98,12 @@ void TestGunObject::attack(const GameInfo& _gameInfo, const StateInfo & _stateIn
 			}
 			bullet->setVelocity(angle, m_perkedStats.m_projectileSpeed);
 			bullet->translate(-m_rotation, 18);
+			if (m_holder)
+			{
+				m_holder->changeVelocity(angle, -m_perkedStats.m_recoil);
+			}
 		}
 		m_spread += m_perkedStats.m_spreadRate;
 		m_currentAmmo -= projectiles * m_perkedStats.m_ammoPerProjectile;
-		if (m_currentAmmo <= 0)
-		{
-			m_reloadCounter.restart(m_perkedStats.m_reloadTime);
-		}
 	}
 }

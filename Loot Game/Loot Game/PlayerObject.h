@@ -1,15 +1,13 @@
 #pragma once
-#include "GameObject.h"
+#include "CharacterObject.h"
 
 class WeaponObject;
 
-class PlayerObject : public GameObject
+class PlayerObject : public CharacterObject
 {
 private:
 	float m_radius;
-	float m_health;
 	int m_playerNumber;
-	WeaponObject* m_gun;
 	bool m_leftTriggerDown;
 public:
 	virtual void initialise(const GameInfo& _gameInfo, const StateInfo& _stateInfo, unsigned int _handle, sf::Vector2f _position = sf::Vector2f(0, 0));

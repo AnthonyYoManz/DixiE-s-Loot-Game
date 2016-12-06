@@ -31,6 +31,9 @@
     <Filter Include="Source Files\Objects">
       <UniqueIdentifier>{d3b0bcca-a83b-4436-b7a5-d5f51a662309}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Components">
+      <UniqueIdentifier>{2cbc22c0-d417-4b8f-a63a-4563a226456e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Hitbox.h">
@@ -102,6 +105,12 @@
     <ClInclude Include="Debugger.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
+    <ClInclude Include="CharacterObject.h">
+      <Filter>Header Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Equipment.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Hitbox.cpp">
@@ -160,6 +169,12 @@
     </ClCompile>
     <ClCompile Include="WeaponObject.cpp">
       <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Equipment.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

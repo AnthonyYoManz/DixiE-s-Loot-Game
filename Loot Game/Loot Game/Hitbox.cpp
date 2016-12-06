@@ -44,11 +44,13 @@ void Hitbox::getMinMaxProjectionsOnAxis(sf::Vector2f axis,
                                         sf::Vector2f* verts, float& minPos, float& maxPos,
                                         sf::Vector2f* otherVerts, float& otherMinPos, float& otherMaxPos){
     for(int j=0; j<4; j++){ //for each point of first hitbox
+		//dot product against axis
         float pos = verts[j].x * axis.x + verts[j].y * axis.y;
         if(pos > maxPos) maxPos = pos;
         if(pos < minPos) minPos = pos;
     }
     for(int j=0; j<4; j++){ //for each point of other hitbox
+		//dot product against axis
         float pos = otherVerts[j].x * axis.x + otherVerts[j].y * axis.y;
         if(pos > otherMaxPos) otherMaxPos = pos;
         if(pos < otherMinPos) otherMinPos = pos;

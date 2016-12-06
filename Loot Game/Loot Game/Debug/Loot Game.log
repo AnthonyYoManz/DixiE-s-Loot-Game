@@ -1,28 +1,5 @@
-﻿  WeaponObject.cpp
-  TestGunObject.cpp
-d:\users\anthony\documents\programming\vc++\projects\dixie-s-loot-game\loot game\loot game\testgunobject.cpp(85): warning C4018: '<': signed/unsigned mismatch
-d:\users\anthony\documents\programming\vc++\projects\dixie-s-loot-game\loot game\loot game\testgunobject.cpp(96): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-  StateManager.cpp
-  PlayerObject.cpp
-  OtherTestState.cpp
-  Hitbox.cpp
-  Game.cpp
-d:\users\anthony\documents\programming\vc++\projects\dixie-s-loot-game\loot game\loot game\game.cpp(7): warning C4305: 'initializing': truncation from 'double' to 'float'
-  Debugger.cpp
-  Generating Code...
-  Compiling...
-  TestState.cpp
-  TestBulletObject.cpp
-  main.cpp
-  ItemObject.cpp
-  InitState.cpp
-d:\users\anthony\documents\programming\vc++\projects\dixie-s-loot-game\loot game\loot game\initstate.cpp(15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  GameState.cpp
-d:\users\anthony\documents\programming\vc++\projects\dixie-s-loot-game\loot game\loot game\gamestate.cpp(42): warning C4018: '<': signed/unsigned mismatch
-  GameplayTestState.cpp
-  Generating Code...
-  Compiling...
-  Clock.cpp
-  Generating Code...
+﻿  TestGunObject.cpp
+d:\users\anthony\documents\programming\vc++\projects\dixie-s-loot-game\loot game\loot game\testgunobject.cpp(88): warning C4018: '<': signed/unsigned mismatch
+d:\users\anthony\documents\programming\vc++\projects\dixie-s-loot-game\loot game\loot game\testgunobject.cpp(99): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   Loot Game.vcxproj -> D:\Users\Anthony\Documents\Programming\VC++\Projects\DixiE-s-Loot-Game\Loot Game\Debug\Loot Game.exe
   Loot Game.vcxproj -> D:\Users\Anthony\Documents\Programming\VC++\Projects\DixiE-s-Loot-Game\Loot Game\Debug\Loot Game.pdb (Partial PDB)

@@ -12,12 +12,18 @@ struct WeaponStats
 
 	//Rate of fire
 	unsigned int m_attackCooldown;
+
+	//Time after clicking before gun fires
+	unsigned int m_chargeTime;
 	
 	//Spread/Spray params
 	float m_maxSpread;
 	float m_minSpread;
 	float m_spreadRate;
 	float m_despreadRate;
+
+	//Power of recoil
+	float m_recoil;
 
 	//Ammo params
 	unsigned int m_clipSize;
@@ -48,6 +54,8 @@ protected:
 	Counter m_cooldownCounter;
 	//Timer that manages reloading
 	Counter m_reloadCounter;
+	//Timer that manages charge time
+	Counter m_chargeCounter;
 	//Current ammo in clip
 	unsigned int m_currentAmmo;
 	//Current spread amount

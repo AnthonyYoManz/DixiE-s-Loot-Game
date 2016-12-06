@@ -5,27 +5,33 @@
 
 void PlayerObject::initialise(const GameInfo& _gameInfo, const StateInfo& _stateInfo, unsigned int _handle, sf::Vector2f _position)
 {
-	GameObject::initialise(_gameInfo, _stateInfo, _handle, _position);
+	CharacterObject::initialise(_gameInfo, _stateInfo, _handle, _position);
+	m_name = "PlayerObject";
 	m_leftTriggerDown = false;
-	m_health = 100;
 	m_radius = 15;
 	m_playerNumber = 1;
 	m_moveSpeed = 4.f;
-	m_gun = (TestGunObject*)_gameInfo.m_objectFactory->createObject("TestGunObject");
-	m_gun->initialise(_gameInfo, _stateInfo, _handle, _position);
+	WeaponObject* gun = (WeaponObject*)_gameInfo.m_objectFactory->createObject("TestGunObject");
+	gun->initialise(_gameInfo, _stateInfo, _handle, _position);
+	gun->equip(this);
+	m_equipment.equip(gun, EquipSlot::LEFT_HAND);
 }
 
 void PlayerObject::update(const GameInfo& _gameInfo, const StateInfo& _stateInfo)
 {
 	handleInputs(_gameInfo, _stateInfo);
-	m_position += getControlledDirection()*m_moveSpeed;
+	decelerate();
+	m_position += getControlledDirection()*m_moveSpeed + m_velocity;
 	lookAt(_gameInfo.m_input->getMousePosition());
-	if (m_gun)
+	WeaponObject* leftHand = m_equipment.getLeftHand();
+	WeaponObject* rightHand = m_equipment.getRightHand();
+	if (leftHand)
 	{
-		m_gun->setPosition(m_position);
-		m_gun->setRotation(m_rotation);
-		m_gun->setTriggerDown(m_leftTriggerDown);
+		leftHand->setPosition(m_position);
+		leftHand->setRotation(m_rotation);
+		leftHand->setTriggerDown(m_leftTriggerDown);
 	}
+	CharacterObject::update(_gameInfo, _stateInfo);
 }
 
 void PlayerObject::draw(const RenderInfo& _renderInfo, const StateInfo& _stateInfo)

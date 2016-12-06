@@ -44,6 +44,7 @@ void InitState::initialise(const GameInfo & _info)
 	_info.m_input->registerInput("p1l2", sf::Keyboard::Q);
 	_info.m_input->registerInput("p1r1", sf::Mouse::Right);
 	_info.m_input->registerInput("p1r2", sf::Keyboard::E);
+	_info.m_input->registerInput("p1pickup", sf::Keyboard::Space);
 	
 
 	_info.m_objectFactory->addCreator("player", 
