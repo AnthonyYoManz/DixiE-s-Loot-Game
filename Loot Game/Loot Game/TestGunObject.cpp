@@ -6,27 +6,26 @@
 void TestGunObject::initialise(const GameInfo & _gameInfo, const StateInfo & _stateInfo, unsigned int _handle, sf::Vector2f _position)
 {
 	WeaponStats stats;
-	stats.m_automatic = false;
+	stats.m_automatic = true;
 	stats.m_damage = 6;
-	stats.m_attackCooldown = 15;
-	stats.m_maxSpread = 10;
-	stats.m_minSpread = 0;
-	stats.m_spreadRate = 2;
-	stats.m_despreadRate = 0.33;
+	stats.m_attackCooldown = 20;
+	stats.m_maxSpread = 45;
+	stats.m_minSpread = 8;
+	stats.m_spreadRate = 6;
+	stats.m_despreadRate = 1;
 	stats.m_projectilesPerShot = 1;
 	stats.m_range = 420;
 	stats.m_projectileSpeed = 13;
-	stats.m_aimGuide = false;
+	stats.m_aimGuide = true;
 	stats.m_ammoPerProjectile = 1;
 	stats.m_reloadTime = 45;
-	stats.m_clipSize = 600;
-	stats.m_recoil = 0.1f;
-	stats.m_shotsPerTrigger = 3;
+	stats.m_clipSize = 60;
+	stats.m_recoil = 1.4f;
+	stats.m_shotsPerTrigger = 1;
 	stats.m_chargeTime = 0;
-	stats.m_shotCooldown = 3;
+	stats.m_shotCooldown = 6;
 	
 	m_baseStats = stats;
-	m_perkedStats = stats;
 
 	WeaponObject::initialise(_gameInfo, _stateInfo, _handle, _position);
 }

@@ -122,7 +122,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Algorithms.h" />
     <ClInclude Include="AssetFactory.h" />
+    <ClInclude Include="BurstPerk.h" />
     <ClInclude Include="CharacterObject.h" />
     <ClInclude Include="Clock.h" />
     <ClInclude Include="Counter.h" />
@@ -136,11 +138,16 @@
     <ClInclude Include="InitState.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="ItemObject.h" />
+    <ClInclude Include="AccuracyPerk.h" />
     <ClInclude Include="ObjectFactory.h" />
     <ClInclude Include="OtherTestState.h" />
     <ClInclude Include="Perk.h" />
     <ClInclude Include="PlayerObject.h" />
+    <ClInclude Include="RangePerk.h" />
+    <ClInclude Include="RecoilReductionPerk.h" />
     <ClInclude Include="RenderInfo.h" />
+    <ClInclude Include="SprayPerk.h" />
+    <ClInclude Include="SpreadDampeningPerk.h" />
     <ClInclude Include="StateInfo.h" />
     <ClInclude Include="StateManager.h" />
     <ClInclude Include="TestBulletObject.h" />
@@ -148,8 +155,10 @@
     <ClInclude Include="TestState.h" />
     <ClInclude Include="GameInfo.h" />
     <ClInclude Include="WeaponObject.h" />
+    <ClInclude Include="WeaponStats.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BurstPerk.cpp" />
     <ClCompile Include="CharacterObject.cpp" />
     <ClCompile Include="Clock.cpp" />
     <ClCompile Include="Counter.cpp" />
@@ -164,8 +173,15 @@
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="ItemObject.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="AccuracyPerk.cpp" />
     <ClCompile Include="OtherTestState.cpp" />
+    <ClCompile Include="Perk.cpp" />
+    <ClCompile Include="PerkInit.cpp" />
     <ClCompile Include="PlayerObject.cpp" />
+    <ClCompile Include="RangePerk.cpp" />
+    <ClCompile Include="RecoilReductionPerk.cpp" />
+    <ClCompile Include="SprayPerk.cpp" />
+    <ClCompile Include="SpreadDampeningPerk.cpp" />
     <ClCompile Include="StateManager.cpp" />
     <ClCompile Include="TestBulletObject.cpp" />
     <ClCompile Include="TestGunObject.cpp" />

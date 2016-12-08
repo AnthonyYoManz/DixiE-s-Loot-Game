@@ -1,5 +1,6 @@
 #include "InitState.h"
 #include <time.h>
+#include "Perk.h"
 #include "PlayerObject.h"
 #include "TestGunObject.h"
 #include "TestBulletObject.h"
@@ -46,6 +47,7 @@ void InitState::initialise(const GameInfo & _info)
 	_info.m_input->registerInput("p1r2", sf::Keyboard::E);
 	_info.m_input->registerInput("p1pickup", sf::Keyboard::Space);
 	
+	Perk::initialisePerkSystem();
 
 	_info.m_objectFactory->addCreator("player", 
 		[]()

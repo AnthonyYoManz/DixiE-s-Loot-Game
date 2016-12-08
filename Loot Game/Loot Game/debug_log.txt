@@ -1,0 +1,11 @@
+Init State object list linked
+GameplayTestState object list linked
+Rarity: 10
+Perk acquired: Spray Perk *2
+Perk acquired: Accuracy Perk
+Perk acquired: Burst Perk
+Perk acquired: Range Perk
+Perk acquired: Spread Dampening Perk *2
+Perk acquired: Recoil Reduction Perk *3
+Excess rarity: 0
+Object list unlinked from factory

@@ -1,6 +1,6 @@
-﻿  TestGunObject.cpp
-d:\users\anthony\documents\programming\vc++\projects\dixie-s-loot-game\loot game\loot game\testgunobject.cpp(15): warning C4305: '=': truncation from 'double' to 'float'
-d:\users\anthony\documents\programming\vc++\projects\dixie-s-loot-game\loot game\loot game\testgunobject.cpp(77): warning C4018: '<': signed/unsigned mismatch
-d:\users\anthony\documents\programming\vc++\projects\dixie-s-loot-game\loot game\loot game\testgunobject.cpp(88): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+﻿  WeaponObject.cpp
+d:\users\anthony\documents\programming\vc++\projects\dixie-s-loot-game\loot game\loot game\weaponobject.cpp(160): warning C4018: '<': signed/unsigned mismatch
+  RangePerk.cpp
+  Generating Code...
   Loot Game.vcxproj -> D:\Users\Anthony\Documents\Programming\VC++\Projects\DixiE-s-Loot-Game\Loot Game\Debug\Loot Game.exe
   Loot Game.vcxproj -> D:\Users\Anthony\Documents\Programming\VC++\Projects\DixiE-s-Loot-Game\Loot Game\Debug\Loot Game.pdb (Partial PDB)

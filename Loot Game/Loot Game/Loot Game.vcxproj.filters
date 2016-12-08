@@ -34,6 +34,15 @@
     <Filter Include="Header Files\Components">
       <UniqueIdentifier>{2cbc22c0-d417-4b8f-a63a-4563a226456e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Components">
+      <UniqueIdentifier>{5666cd84-7a0b-4ee8-8456-6c2d98e53781}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Components\Perks">
+      <UniqueIdentifier>{f8f61f18-fb63-41fb-bc2a-3ac7713803d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Components\Perks">
+      <UniqueIdentifier>{0a0b4c21-a84c-4ce6-bdd4-4a699331f43b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Hitbox.h">
@@ -99,9 +108,6 @@
     <ClInclude Include="Counter.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="TestBulletObject.h">
-      <Filter>Source Files\Objects</Filter>
-    </ClInclude>
     <ClInclude Include="Debugger.h">
       <Filter>Header Files\Engine</Filter>
     </ClInclude>
@@ -113,6 +119,33 @@
     </ClInclude>
     <ClInclude Include="Perk.h">
       <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="WeaponStats.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Algorithms.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SprayPerk.h">
+      <Filter>Header Files\Components\Perks</Filter>
+    </ClInclude>
+    <ClInclude Include="AccuracyPerk.h">
+      <Filter>Header Files\Components\Perks</Filter>
+    </ClInclude>
+    <ClInclude Include="TestBulletObject.h">
+      <Filter>Header Files\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="BurstPerk.h">
+      <Filter>Header Files\Components\Perks</Filter>
+    </ClInclude>
+    <ClInclude Include="RangePerk.h">
+      <Filter>Header Files\Components\Perks</Filter>
+    </ClInclude>
+    <ClInclude Include="SpreadDampeningPerk.h">
+      <Filter>Header Files\Components\Perks</Filter>
+    </ClInclude>
+    <ClInclude Include="RecoilReductionPerk.h">
+      <Filter>Header Files\Components\Perks</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -173,11 +206,35 @@
     <ClCompile Include="WeaponObject.cpp">
       <Filter>Source Files\Objects</Filter>
     </ClCompile>
-    <ClCompile Include="CharacterObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Equipment.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Perk.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterObject.cpp">
+      <Filter>Source Files\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="PerkInit.cpp">
+      <Filter>Source Files\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="SprayPerk.cpp">
+      <Filter>Source Files\Components\Perks</Filter>
+    </ClCompile>
+    <ClCompile Include="AccuracyPerk.cpp">
+      <Filter>Source Files\Components\Perks</Filter>
+    </ClCompile>
+    <ClCompile Include="BurstPerk.cpp">
+      <Filter>Source Files\Components\Perks</Filter>
+    </ClCompile>
+    <ClCompile Include="RangePerk.cpp">
+      <Filter>Source Files\Components\Perks</Filter>
+    </ClCompile>
+    <ClCompile Include="RecoilReductionPerk.cpp">
+      <Filter>Source Files\Components\Perks</Filter>
+    </ClCompile>
+    <ClCompile Include="SpreadDampeningPerk.cpp">
+      <Filter>Source Files\Components\Perks</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
